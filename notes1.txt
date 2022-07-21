@@ -1,0 +1,7 @@
+find . -mtime 0 -printf '%T+\t%s\t%p\n' 2>/dev/null | sort -r | tee results.log
+
+REG ADD "HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System\CredSSP\Parameters" /v AllowEncryptionOracle /t REG_DWORD /d 2
+
+"$RegPath = "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\CredSSP\Parameters\" 
+New-ItemProperty -Path $RegPath -Name AllowEncryptionOracle -Value 2 -PropertyType DWORD -Force"
+
